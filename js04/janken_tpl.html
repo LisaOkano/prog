@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>じゃんけん</title>
+</head>
+<body>
+
+<header>
+  <h1>じゃんけん</h1>
+</header>
+
+<main>
+  <ul>
+    <li id="gu_btn"><img src="gu.png" ,width="200" height="90"></li>
+    <li id="cho_btn"><img src="cho.png" ,width="200" height="90"></li>
+    <li id="par_btn"><img src="pa.png" ,width="200" height="90"></li>
+  </ul>
+  <div style="text-align:center"><span id="pc_hands">最初はグー！じゃんけん、、、</span></div>
+  <div style="text-align:center" id="judgment"></div>
+  <div id="jya"></div>
+</main>
+
+<footer></footer>
+<script>
+//じゃんけん用のSCRIPTを書いてください
+$("#jya").html('<img src="jya.png" ,width="400" height="300">');
+$("#jya").show("1000");
+//グーをクリックした時
+$("#gu_btn").on("click", function(){
+  const num = Math.ceil(Math.random() * 3);
+
+  if(num==1){
+        //$("#pc_hands").html("グー");
+        $("#pc_hands").html('<img src="gu.png" ,width="400" height="180">');
+        $("#judgment").html("あいこだ！もう1回！");
+    }if(num==2){
+        $("#pc_hands").html('<img src="cho.png" ,width="400" height="180">');
+        $("#judgment").html("あなたの勝ち！おめでとう！");
+    }if(num==3){
+        $("#pc_hands").html('<img src="pa.png" ,width="400" height="180">');
+        $("#judgment").html("あなたの負け、、泣");
+    }
+})
+
+//チョキをクリックした時
+$("#cho_btn").on("click", function(){
+  const num = Math.ceil(Math.random() * 3);
+
+  if(num==1){
+        $("#pc_hands").html('<img src="gu.png" ,width="400" height="180">');
+        $("#judgment").html("あなたの負け、、泣");
+    }if(num==2){
+        $("#pc_hands").html('<img src="cho.png" ,width="400" height="180">');
+        $("#judgment").html("あいこだ！もう1回！");
+    }if(num==3){
+        $("#pc_hands").html('<img src="pa.png" ,width="400" height="180">');
+        $("#judgment").html("あなたの勝ち！おめでとう！");
+    }
+})
+
+//パーをクリックした時
+$("#par_btn").on("click", function(){
+  const num = Math.ceil(Math.random() * 3);
+
+  if(num==1){
+        $("#pc_hands").htm('<img src="gu.png" ,width="400" height="180">');
+        $("#judgment").html("あなたの勝ち！おめでとう！");
+    }if(num==2){
+        $("#pc_hands").html('<img src="cho.png" ,width="400" height="180">');
+        $("#judgment").html("あなたの負け、、泣");
+    }if(num==3){
+        $("#pc_hands").html('<img src="pa.png" ,width="400" height="180">');
+        $("#judgment").html("あいこだ！もう1回！");
+    }
+})
+    
+
+</script>
+</body>
+</html>
