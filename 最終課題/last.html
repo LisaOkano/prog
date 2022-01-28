@@ -1,0 +1,150 @@
+　<!DOCTYPE html>
+<html>
+<head style="font-family: ヒラギノ丸ゴ ProN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title> 最終課題</title>
+</script>
+</head>
+
+<body style="background-color: #f5f5dc;">
+
+<header style="background-color: #5f9ea0;">
+    <h1 >quiz</h1>
+    <h2>正解数</h2>
+</header>
+
+<main style="font-family: ヒラギノ丸ゴ ProN">
+  <p id="quest">ここに問題が出題されます</p>
+  <p>
+
+    <style>
+
+        .botan{
+            border: 1px solid #333;
+            padding:10px;
+            background: #f2f2f2;
+            display: inline-block;
+            font-weight: bold;
+            transition: .3s;
+            border-radius:30px;
+        }
+        .botan:hover{
+            background: #5f9ea0;
+        }
+        </style>
+    <input type="button" class="botan" name="toi" value=" 1 "><span id="toi1">選択肢１</span>
+    <input type="button" class="botan" name="toi" value=" 2 "><span id="toi2">選択肢２</span>
+    <input type="button" class="botan" name="toi" value=" 3 "><span id="toi3">選択肢３</span>
+  </p>
+<P id="kaisetu" style="font-size: 15;">解説</P>
+
+</main>
+
+<footer style="background-color: #5f9ea0;">　</footer>
+<script>
+//ここから記述領域［START］
+ 
+  //以下に配列を記述してください。
+  //問題文[配列]
+ const qs =[
+   "Q1. 次のうち、行くと食欲が無くなるのはどこ？" ,
+   "Q2. 月曜、木曜、土曜、仲間外れはどの曜日？",
+   "Q3. しゃぶしゃぶ、焼肉、お寿司の中で名探偵が一番好きなものはどれ？",
+   "Q4. マスクメロンの「マスク」の意味は？",
+   "Q5. ゴリラには1種類の血液型しかないが、それは何型か？",
+   "Q6. シュークリームの「シュー」の意味は？",
+   "終了~~"
+ ];
+    
+  //回答選択肢[多重配列]
+ const toi = [
+    ["レストラン","宇宙","動物園"],
+    ["月曜","木曜","土曜"],
+    ["しゃぶしゃぶ","焼肉","お寿司"],
+    ["偽物","香り","仮面"],
+    ["O型","AB型","B型"],
+    ["キャベツ","パリパリ","山"],
+    ["","",""]
+ ];
+    
+  //答え[配列]
+ const ans = [2, 1, 3, 2, 3, 1];
+
+ 
+ //解説
+const kai =[
+    " 解説",
+   "Q1 A.宇宙...空気がなくなるから（食う気がなくなる）" ,
+   "Q2 A.月曜...他は全て木星、土星など『星』をつけて読むことができるから",
+   "Q3 A.お寿司...酢入り（推理）が好きだから",
+   "Q4 A.香り...マスクは香りを意味する",
+   "Q5 A.B型...だそうです（笑）",
+   "Q6 A.キャベツ...見た目がキャベツに似ていることから"
+ ];
+
+
+  //1.最初の問題文＆回答選択肢＆回答値を設定
+ let i = 0;
+ $("#quest").text( qs[i] );
+ $("#toi1").text( toi[i][0] );
+ $("#toi2").text( toi[i][1] );
+ $("#toi3").text( toi[i][2] );
+ $("#toi4").text( toi[i][3] );
+ $("#toi5").text( toi[i][4] );
+ $("#toi6").text( toi[i][5] );
+ $("#toi6").text( toi[i][6] );
+
+let m = 0;
+ $("#kaisetu").text(kai[m]);
+ $("#kai1").text( kai[m][0]);
+ $("#kai2").text( kai[m][1] );
+ $("#kai3").text( kai[m][2] );
+ $("#kai4").text( kai[m][3] );
+ $("#kai5").text( kai[m][4] );
+ $("#kai6").text( kai[m][5] );
+ $("#kai7").text( kai[m][6] );
+
+
+  //2.クリックイベント
+  let n=0;
+  $("[name=toi]").on("click",function(){
+        const v = $(this).val();
+        if(ans[i] == v){
+          $("h1").text("正解！");
+           n++;
+           $("h2").text("現在"+n+"問正解！");
+        }else{
+          $("h1").text("不正解");
+        }
+  
+//配列に入れるiが１プラスされます。
+i++;
+ $("#quest").text( qs[i] );
+ $("#toi1").text( toi[i][0] );
+ $("#toi2").text( toi[i][1] );
+ $("#toi3").text( toi[i][2] );
+ $("#toi4").text( toi[i][3] );
+ $("#toi5").text( toi[i][4] );
+ $("#toi6").text( toi[i][5] );
+
+ 
+ m++;
+ $("#kaisetu").text( kai[m] );
+ $("#kai1").text( kai[m][0] );
+ $("#kai2").text( kai[m][1] );
+ $("#kai3").text( kai[m][2] );
+ $("#kai4").text( kai[m][3] );
+ $("#kai5").text( kai[m][4] );
+ $("#kai6").text( kai[m][5] );
+    });
+    
+ 
+
+ 
+//ここまでが記述領域［END］
+</script>
+</body>
+</html>
